@@ -44,11 +44,18 @@ var currentDay = function(){
     var day = moment().format("dddd, MMMM Do");
     $("#currentDay").text(day);
 }
-//get event
-$(".time-block").on("change", ".description", function (){
-    var descriptiom = $(this)
-    .val()
+//get time event
+$(".time-block").on("click", function (){
+    var hour = $(this)
+    .text()
     .trim();
-    console.log(description);
+    console.dir(event.target);
+    console.log(hour);
+});
+// textarea was changed
+$(".form-control").on("change", function(){
+    var text = $(this)
+    .val();
+    console.log(text);
 });
 currentDay();
