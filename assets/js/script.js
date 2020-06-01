@@ -14,7 +14,6 @@ var refreshPage = function() {
     $.each(events, function (i, event) {
         loadEvents(i, event);
     });
-    return false;
 } 
 //when a save button is clicked
 $(".btn").on("click", function(event){
@@ -26,6 +25,7 @@ $(".btn").on("click", function(event){
     events.push(eventOb)
     console.log(events)
     localStorage.setItem('events', JSON.stringify(events))
+    refreshPage();
 });
 currentDay();
 refreshPage();
