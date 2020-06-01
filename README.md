@@ -30,7 +30,7 @@ A daily planner application that allows a user to save events for each business 
 
 ## Website
 To visit the page go to:
-https://florhaidee.github.io/JavaScriptQuiz/
+https://florhaidee.github.io/work-day-scheduler/
 
 ## Contribution
 Made with ❤️ by Florhaidee
