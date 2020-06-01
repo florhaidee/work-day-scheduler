@@ -1,13 +1,20 @@
-var eventsArray = JSON.parse(localStorage.getItem('event')) || [];
-
+var events = JSON.parse(localStorage.getItem('events')) || [];
 var today = moment();
 //set currentday
 var currentDay = function(){
     var day = moment().format("dddd, MMMM Do");
     $("#currentDay").text(day);
 }
-var saveEvent = function(eventOb) {
-    console.log(eventOb);
+var loadEvents = function(i, event){
+    var id = event.hour.slice(0,2);
+    $("#time-"+id).text(event.text);
+}
+var refreshPage = function() {
+    // loop over object properties
+    $.each(events, function (i, event) {
+        loadEvents(i, event);
+    });
+    return false;
 } 
 //when a save button is clicked
 $(".btn").on("click", function(event){
@@ -16,9 +23,9 @@ $(".btn").on("click", function(event){
         text: $(this).prev().val().trim(),
         hour: $(this).closest(".time-block").text().trim()
     }
-    eventsArray.push(eventOb)
-    console.log(eventsArray)
-    saveEvent(eventOb);
-    localStorage.setItem('event', JSON.stringify(eventsArray))
+    events.push(eventOb)
+    console.log(events)
+    localStorage.setItem('events', JSON.stringify(events))
 });
 currentDay();
+refreshPage();
